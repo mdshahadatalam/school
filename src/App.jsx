@@ -4,6 +4,8 @@ import { ClentMatter } from './Component/ClentMatter';
 import { Navbar } from './Component/Navbar'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { Teacher } from './Component/Teacher';
+import { MyClient } from './Component/MyClient';
 
 function App() {
 
@@ -12,6 +14,8 @@ function App() {
         <Navbar/>
         <Banner/>
         <ClentMatter/>
+        <Teacher/>
+        <MyClient/>
       </>
   )
 }
