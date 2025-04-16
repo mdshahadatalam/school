@@ -1,7 +1,16 @@
 import React from 'react'
 import child from '../assets/child.png'
+import { useCountUp } from 'react-countup';
+import ScrollTrigger from 'react-scroll-trigger';
+
+
 
 export const ClentMatter = () => {
+  useCountUp({ ref: 'counter2', end: 15 });
+    useCountUp({ ref: 'counter3', end: 150 });
+    useCountUp({ ref: 'counter4', end: 15 });
+    useCountUp({ ref: 'counter5', end: 100 });
+    
   return (
     <> 
        <section className="py-5 bg-white">
@@ -9,22 +18,22 @@ export const ClentMatter = () => {
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
       
       <div>
-        <h1 className="views text-[32px] font-bold text-primary">15K</h1>
+        <h1 className="views text-[32px] font-bold text-primary"><span id="counter2" />K</h1>
         <p className="happy text-[16px] leading-[150%] tracking-[0.01em] text-text">Happy Customers</p>
       </div>
 
       <div>
-        <h1 className="views text-[32px] font-bold text-primary">150K</h1>
+        <h1 className="views text-[32px] font-bold text-primary"><span id="counter3" />K</h1>
         <p className="happy text-[16px] leading-[150%] tracking-[0.01em] text-text">Monthly Visitors</p>
       </div>
 
       <div>
-        <h1 className="views text-[32px] font-bold text-primary">15</h1>
+        <h1 className="views text-[32px] font-bold text-primary"><span id="counter4" /></h1>
         <p className="happy text-[16px] leading-[150%] tracking-[0.01em] text-text">Countries Worldwide</p>
       </div>
 
       <div>
-        <h1 className="views text-[32px] font-bold text-primary">100+</h1>
+        <h1 className="views text-[32px] font-bold text-primary"><span id="counter5" />+</h1>
         <p className="happy text-[16px] leading-[150%] tracking-[0.01em] text-text">Top Partners</p>
       </div>
       

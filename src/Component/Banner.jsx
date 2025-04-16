@@ -1,8 +1,12 @@
 import React from 'react'
 import { CoursePart } from './CoursePart'
+import { useCountUp } from 'react-countup';
 
 export const Banner = () => {
+  useCountUp({ ref: 'counter', end: 25 });
   return (
+
+    
     <>
          <section className='banner py-5 bg-[#FAFAFA]'>
                <div className="container">
@@ -11,7 +15,7 @@ export const Banner = () => {
                             {/* banner start */}
                           <div className="col-lg-6 pt-10">
                                <small className='font-bold text-base leading-[150%] tracking-[0.01em] text-primary cursor-pointer hover:underline'>Join Us</small>
-                               <p className='font-bold text-5xl leading-[138%] tracking-[0em] py-4'>25K+ STUDENTS TRUST US</p>
+                               <p  className='font-bold text-5xl leading-[138%] tracking-[0em] py-4'><span id="counter" /> K+ STUDENTS TRUST US</p>
 
                                <p className='font-normal text-[20px] leading-[150%] tracking-[0.01em] text-second-text pb-3 font-serif'>Every day brings with it a fresh set of learning possibilities.</p>
 
@@ -25,7 +29,6 @@ export const Banner = () => {
                      </div>
                </div>
          </section>
-
          <CoursePart/>
     </>
   )
