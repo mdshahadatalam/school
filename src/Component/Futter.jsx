@@ -84,7 +84,7 @@ export const Futter = () => {
         Made With Love By Figmaland All Right Reserved
       </p>
 
-      <div className="flex gap-3">
+      <div className="flex gap-3 pb-2">
         <span className="text-[#96BB7C] text-2xl cursor-pointer">
           <FaFacebook />
         </span>

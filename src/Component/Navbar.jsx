@@ -49,22 +49,23 @@ export const Navbar = () => {
 
 {/* mobile sidebar */}
 <aside
-    className={` ${isMenuOpen ? "translate-y-0 opacity-100 z-20" : "translate-y-[200px] opacity-0 z-[-1]"} md:hidden bg-black p-4 text-center absolute top-[60px] right-0 w-full sm:w-[300px] rounded-md transition-all duration-300`}>
-
-    <div className="w-full relative mb-5">
-        <input
-            className="py-1.5 pr-4 pl-12 w-full rounded-full outline-none focus:border-white"
-            placeholder="Search..."/>
-        <IoIosSearch
-            className="absolute top-[9px] left-5 text-white text-[1.3rem]"/>
-    </div>
+    className={` ${isMenuOpen ? "translate-y-0 opacity-100 z-20" : "translate-y-[200px] opacity-0 z-[-1]"} md:hidden bg-[#a7a2a2] p-4 text-center absolute top-[60px] right-0 w-full sm:w-[300px] rounded-md transition-all duration-300`}>
 
     <ul className="items-center gap-[20px] text-[1rem] text-white flex flex-col">
-        <li className="hover:border-b-[#3B9DF8] border-b-[2px] border-transparent transition-all duration-500 cursor-pointer capitalize">home</li>
-        <li className="hover:border-b-[#3B9DF8] border-b-[2px] border-transparent transition-all duration-500 cursor-poin ter capitalize">about
+        <li  onClick={() => setIsMenuOpen(!isMenuOpen)} className="hover:border-b-[#3B9DF8] border-b-[2px] border-transparent transition-all duration-500 cursor-pointer capitalize">home</li>
+        <li  onClick={() => setIsMenuOpen(!isMenuOpen)} className="hover:border-b-[#3B9DF8] border-b-[2px] border-transparent transition-all duration-500 cursor-poin ter capitalize">about
             us
         </li>
-        <li className="hover:border-b-[#3B9DF8] border-b-[2px] border-transparent transition-all duration-500 cursor-pointer capitalize">services</li>
+        <li  onClick={() => setIsMenuOpen(!isMenuOpen)} className="hover:border-b-[#3B9DF8] border-b-[2px] border-transparent transition-all duration-500 cursor-pointer capitalize">services</li>
+
+        <button  onClick={() => setIsMenuOpen(!isMenuOpen)} className='font-bold text-[18px] leading-[157%] tracking-[0.01em] text-right text-white mx-3'>
+           login
+         </button>
+
+
+  <button  onClick={() => setIsMenuOpen(!isMenuOpen)} className='rounded-[5px] px-[25px] py-[15px] w-[137px] h-[52px] bg-[var(--primary-color)] font-bold text-[14px] leading-[157%] tracking-[0.01em] text-[var(--light-background-color)] shadow-md transition-all duration-300 hover:bg-[var(--primary-color)] hover:scale-105'>
+    JOIN US
+  </button>
     </ul>
 
 </aside>
