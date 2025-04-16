@@ -29,13 +29,18 @@ export const Navbar = () => {
 <div className="flex items-center gap-[10px]">
     
 
-    <div>
-          <button className='font-bold text-[18px] leading-[157%] tracking-[0.01em] text-right text-[var(--primary-color)] mx-3 sm:none'>login</button>
-    </div>
+<div className="hidden sm:block">
+  <button className='font-bold text-[18px] leading-[157%] tracking-[0.01em] text-right text-[var(--primary-color)] mx-3'>
+    login
+  </button>
+</div>
 
-      <div>
-      <button className='rounded-[5px] px-[25px] py-[15px] w-[137px] h-[52px] bg-[var(--primary-color)] font-bold text-[14px] leading-[157%] tracking-[0.01em] text-[var(--light-background-color)] shadow-md     transition-all duration-300 hover:bg-[var(--primary-color)] hover:scale-105 '>JOIN US</button>
-      </div>
+<div className="hidden sm:block">
+  <button className='rounded-[5px] px-[25px] py-[15px] w-[137px] h-[52px] bg-[var(--primary-color)] font-bold text-[14px] leading-[157%] tracking-[0.01em] text-[var(--light-background-color)] shadow-md transition-all duration-300 hover:bg-[var(--primary-color)] hover:scale-105'>
+    JOIN US
+  </button>
+</div>
+
 
                  <CiMenuFries
                     className="text-[1.6rem] text-[#424242] cursor-pointer md:hidden flex"
