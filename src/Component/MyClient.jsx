@@ -24,7 +24,7 @@ export const MyClient = () => {
                                       <img src={cercle1} alt="image" />
 
                                        <div className='ps-2'>
-                                         <p className='font-bold text-[14px] leading-[171%] tracking-[0.01em] text-[#96BB7C] m-0'>Regina Miles</p>
+                                         <p className='font-bold text-[14px] leading-[171%] tracking-[0.01em] text-black m-0'>Regina Miles</p>
                                          <small className='font-normal text-[12px] leading-[133%] tracking-[0.02em]'>Designer</small>
                                        </div>
                                    </div>
@@ -39,7 +39,7 @@ export const MyClient = () => {
                                       <img src={cercle2} alt="image" />
 
                                        <div className='ps-2'>
-                                         <p className='font-bold text-[14px] leading-[171%] tracking-[0.01em] text-[#96BB7C] m-0'>Regina Miles</p>
+                                         <p className='font-bold text-[14px] leading-[171%] tracking-[0.01em] text-black m-0'>Regina Miles</p>
                                          <small className='font-normal text-[12px] leading-[133%] tracking-[0.02em]'>Designer</small>
                                        </div>
                                    </div>
@@ -55,7 +55,7 @@ export const MyClient = () => {
                                       <img src={cercle3} alt="image" />
 
                                        <div className='ps-2'>
-                                         <p className='font-bold text-[14px] leading-[171%] tracking-[0.01em] text-[#96BB7C] m-0'>Regina Miles</p>
+                                         <p className='font-bold text-[14px] leading-[171%] tracking-[0.01em] text-black m-0'>Regina Miles</p>
                                          <small className='font-normal text-[12px] leading-[133%] tracking-[0.02em]'>Designer</small>
                                        </div>
                                    </div>
