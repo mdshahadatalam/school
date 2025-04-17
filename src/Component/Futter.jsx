@@ -6,7 +6,7 @@ import { MdCall } from 'react-icons/md'
 export const Futter = () => {
   return (
    <>
-      <section className='py-5'>
+      <section id='contact' className='py-5'>
            <div className="container">
                <div className="row">
                    <div className="col-lg-2 col-md-2 col-sm-4 mt-3">

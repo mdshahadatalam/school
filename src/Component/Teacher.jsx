@@ -11,7 +11,7 @@ import { FaRegEye } from 'react-icons/fa'
 export const Teacher = () => {
   return (
     <>
-       <section className='py-5 bg-[#FFF2F3]'>
+       <section id='product' className='py-5 bg-[#FFF2F3]'>
            <div className="container">
 
               <div>

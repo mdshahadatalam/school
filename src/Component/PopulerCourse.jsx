@@ -9,7 +9,7 @@ import { RiInstagramLine } from 'react-icons/ri'
 export const PopulerCourse = () => {
   return (
     <>
-       <section className='py-5'>
+       <section id='pricing' className='py-5'>
            <div className="container">
                <div>
                    <small className='font-custom font-bold text-sm leading-[171%] tracking-[0.01em] text-[#96BB7C]'>Team</small>

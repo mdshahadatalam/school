@@ -43,7 +43,7 @@ export const ClentMatter = () => {
 </section>
 
 
-       <section className='py-5 bg-white'>
+       <section  className='py-5 bg-white'>
              <div className="container">
                    <div className="row justify-center align-items-center">
                        <div className="col-lg-6">

@@ -8,7 +8,7 @@ export const Banner = () => {
 
     
     <>
-         <section className='banner py-5 bg-[#FAFAFA]'>
+         <section id='home' className='banner py-5 bg-[#FAFAFA]'>
                <div className="container">
                      <div className="row">
 
