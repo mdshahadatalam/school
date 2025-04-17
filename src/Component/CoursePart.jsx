@@ -11,7 +11,7 @@ export const CoursePart = () => {
                                             {/* 1s part  */}
                                              <div className="col-lg-4 col-md-4 col-sm-6 mt-3">
          
-                                               <div className=' bg-white shadow-lg px-4 py-3 transition-all duration-300 hover:bg-[var(--primary-color)] hover:scale-105 cursor-pointer'>
+                                               <div data-aos="zoom-in" data-aos-duration="1000" className=' bg-white shadow-lg px-4 py-3 transition-all duration-300 hover:bg-[var(--primary-color)] hover:scale-105 cursor-pointer'>
                                                <div className='w-[72px] h-[72px] bg-[#E74040] rounded-full           d-flex justify-center align-items-center my-3'>
                                                  <span className='text-white text-3xl'><FaGraduationCap /></span>
                                                </div>
@@ -29,7 +29,7 @@ export const CoursePart = () => {
                                              {/* 2nd part  */}
                                              <div className="col-lg-4 col-md-4 col-sm-6 mt-3">
                                                
-                                                <div className=' bg-white shadow-lg px-4 py-3 transition-all    duration-300 hover:bg-[var(--primary-color)] hover:scale-105 cursor-pointer'>
+                                                <div data-aos="zoom-in" data-aos-duration="2500" className=' bg-white shadow-lg px-4 py-3 transition-all    duration-300 hover:bg-[var(--primary-color)] hover:scale-105 cursor-pointer'>
                                                       
                                                <div className='w-[72px] h-[72px] bg-[#E74040] rounded-full   d-flex justify-center align-items-center my-3'>
                                                  <span className='text-white text-3xl'><BsFillTrainFrontFill /></span>
@@ -48,7 +48,7 @@ export const CoursePart = () => {
 
                                              <div className="col-lg-4 col-md-4 col-sm-6 mt-3">
                                                
-                                               <div className=' bg-white shadow-lg px-4 py-3 transition-all    duration-300 hover:bg-[var(--primary-color)] hover:scale-105 cursor-pointer'>
+                                               <div data-aos="zoom-in" data-aos-duration="3000" className=' bg-white shadow-lg px-4 py-3 transition-all    duration-300 hover:bg-[var(--primary-color)] hover:scale-105 cursor-pointer'>
                                                      
                                               <div className='w-[72px] h-[72px] bg-[#E74040] rounded-full   d-flex justify-center align-items-center my-3'>
                                                 <span className='text-white text-3xl'><FaBook /></span>

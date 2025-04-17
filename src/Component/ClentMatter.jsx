@@ -6,10 +6,11 @@ import ScrollTrigger from 'react-scroll-trigger';
 
 
 export const ClentMatter = () => {
-  useCountUp({ ref: 'counter2', end: 15 });
-    useCountUp({ ref: 'counter3', end: 150 });
-    useCountUp({ ref: 'counter4', end: 15 });
-    useCountUp({ ref: 'counter5', end: 100 });
+    useCountUp({ ref: 'counter2', end: 15 , duration:'6' });
+    useCountUp({ ref: 'counter2', end: 15 , duration:'10' });
+    useCountUp({ ref: 'counter3', end: 150 , duration:'6'  });
+    useCountUp({ ref: 'counter4', end: 15 , duration:'10' });
+    useCountUp({ ref: 'counter5', end: 100 , duration:'6' });
     
   return (
     <> 
@@ -46,14 +47,14 @@ export const ClentMatter = () => {
              <div className="container">
                    <div className="row justify-center align-items-center">
                        <div className="col-lg-6">
-                         <h4 className='every'>Every Client Matters</h4>
+                         <h4 data-aos="zoom-in" data-aos-duration="2000" className='every'>Every Client Matters</h4>
 
-                         <p className='problems py-4'>Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics </p>
+                         <p data-aos="zoom-in" data-aos-duration="2500" className='problems py-4'>Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics </p>
 
-                         <a className='more' href="">Learn More</a>
+                         <a data-aos="zoom-in" data-aos-duration="2000" className='more' href="">Learn More</a>
                        </div>
                        <div className="col-lg-6">
-                          <img className='img-fluid' src={child} alt="child" />
+                          <img data-aos="zoom-in" data-aos-duration="2500" className='img-fluid' src={child} alt="child" />
                        </div>
                    </div>
              </div>
