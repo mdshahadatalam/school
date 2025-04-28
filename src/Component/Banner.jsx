@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { CoursePart } from './CoursePart'
 import { useCountUp } from 'react-countup';
+import { Rejistration } from '../Pages/Rejistration';
 
 export const Banner = () => {
   useCountUp({ ref: 'counter', end: 30, duration:'8' });
+  const [show, setShow] = useState(false)
+  const handleShow =()=>{
+    setShow(true)
+  }
+
+  const handleClose =()=>{
+    setShow(false)
+  }
   return (
 
     
@@ -14,10 +23,10 @@ export const Banner = () => {
 
                             {/* banner start */}
                           <div className="col-lg-6 pt-10">
-                               <small className='font-bold text-base leading-[150%] tracking-[0.01em] text-primary cursor-pointer hover:underline'>Join Us</small>
-                               <p data-aos="zoom-in" data-aos-duration="2000" className='font-bold text-5xl leading-[138%] tracking-[0em] py-4'><span id="counter" /> K+ STUDENTS TRUST US</p>
+                               <small onClick={handleShow} className='font-bold text-base leading-[150%] tracking-[0.01em] text-primary cursor-pointer hover:underline'>Join Us</small>
+                               <p  className='font-bold text-5xl leading-[138%] tracking-[0em] py-4'><span id="counter" /> K+ STUDENTS TRUST US</p>
 
-                               <p data-aos="zoom-in" data-aos-duration="2500" className='font-normal text-[20px] leading-[150%] tracking-[0.01em] text-second-text pb-3 font-serif'>Every day brings with it a fresh set of learning possibilities.</p>
+                               <p  className='font-normal text-[20px] leading-[150%] tracking-[0.01em] text-second-text pb-3 font-serif'>Every day brings with it a fresh set of learning possibilities.</p>
 
                                  <div>
                                       <button className='rounded-[5px] w-[193px] h-[52px] bg-[var(--primary-color)]  font-custom font-bold text-[14px] leading-[157%] tracking-[0.01em] text-white text-center shadow-md     transition-all duration-300 hover:bg-[var(--primary-color)] hover:scale-105'>Get Quote Now</button>
@@ -30,6 +39,10 @@ export const Banner = () => {
                </div>
          </section>
          <CoursePart/>
+
+         {
+             show? <Rejistration handleClose={handleClose}/> : null
+         }
     </>
   )
 }

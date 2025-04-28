@@ -2,9 +2,30 @@ import React, { useState } from 'react'
 import {IoIosSearch} from "react-icons/io";
 import logo from '../assets/navbar-brand sec-.png'
 import { CiMenuFries } from 'react-icons/ci';
+import { Link } from 'react-router';
+import { Rejistration } from '../Pages/Rejistration';
+import { SignIn } from '../Pages/SignIn';
 
 export const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [show,setShow] = useState(false)
+    const [showSign , setShowSign] = useState(false)
+
+     const handleShow = ()=>{
+      setShow(true)
+     }
+     const handleClose =()=>{
+      setShow(false)
+     }
+
+     const handleSignIn = ()=>{
+      setShowSign(true)
+     }
+     const handleSignInClose =()=>{
+      setShowSign(false)
+     }
+     
+
   return (
    <>
      <section className='py-3'>
@@ -40,15 +61,16 @@ export const Navbar = () => {
 <div className="flex items-center gap-[10px]">
 
 <div className="hidden sm:block">
-  <button className='font-bold text-[18px] leading-[157%] tracking-[0.01em] text-right text-[var(--primary-color)] mx-3'>
+  <button onClick={handleSignIn} className='font-bold text-[18px] leading-[157%] tracking-[0.01em] text-right text-[var(--primary-color)] mx-3'>
     login
   </button>
 </div>
 
 <div className="hidden sm:block">
-  <button className='rounded-[5px] px-[25px] py-[15px] w-[137px] h-[52px] bg-[var(--primary-color)] font-bold text-[14px] leading-[157%] tracking-[0.01em] text-[var(--light-background-color)] shadow-md transition-all duration-300 hover:bg-[var(--primary-color)] hover:scale-105'>
-    JOIN US
+  <button onClick={handleShow} className='rounded-[5px] px-[25px] py-[15px] w-[137px] h-[52px] bg-[var(--primary-color)] font-bold text-[14px] leading-[157%] tracking-[0.01em] text-[var(--light-background-color)] shadow-md transition-all duration-300 hover:bg-[var(--primary-color)] hover:scale-105'>
+   JOIN US 
   </button>
+
 </div>
 
 
@@ -83,6 +105,17 @@ export const Navbar = () => {
 </nav>
      </div>
      </section>
+
+   {
+     show ? <Rejistration handleClose={handleClose} /> : null
+   }
+
+
+  {
+    showSign? <SignIn handleSignInClose={handleSignInClose} /> : null
+  }
+
+
    </>
   )
 }

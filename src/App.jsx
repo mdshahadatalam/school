@@ -14,6 +14,7 @@ import 'aos/dist/aos.css'
 import { useEffect } from 'react';
 
 
+
 function App() {
 
   useEffect( ()=>{
@@ -31,6 +32,7 @@ function App() {
         <Subcripe/>
         <Futter/>
       </>
+       
   )
 }
 
