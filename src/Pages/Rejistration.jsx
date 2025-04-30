@@ -1,8 +1,64 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {RiAccountCircleLine, RiLockPasswordLine} from "react-icons/ri";
 import {MdOutlineMail} from "react-icons/md";
 import { RxCross2 } from 'react-icons/rx';
+import { getAuth, createUserWithEmailAndPassword , sendEmailVerification} from "firebase/auth";
+import app from '../DB/Firebase';
+import { toast, ToastContainer } from 'react-toastify';
+import { BeatLoader } from 'react-spinners';
+
 export const Rejistration = ({handleClose}) => {
+    const auth = getAuth(app);
+    const [userName, setUserName] = useState()
+    const [password, setPassword] = useState()
+    const [email, setEmail] = useState()
+    const [loader, setLoader] = useState(false)
+    
+
+    const handleSubmit = () => {
+      setLoader(true)
+        createUserWithEmailAndPassword(auth, email,password)
+  .then(() => {
+    setLoader(false)
+    console.log("sign Up successfully");
+    setUserName("");
+    setPassword("");
+    setEmail("");
+
+    sendEmailVerification(auth.currentUser)
+
+    toast.success(' Email verification send', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      // transition: Bounce,
+      });
+    
+    
+    // ...
+  })
+  .catch((error) => {
+    setLoader(false)
+    console.log(error);
+    toast.error('Please try again', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      // transition: Bounce,
+      });
+    
+  });
+        }
   return (
     <>
        <div className='w-full h-screen d-flex justify-content-center align-items-center bg-black position-fixed top-0 position-relative'>
@@ -25,6 +81,8 @@ export const Rejistration = ({handleClose}) => {
         name="username"
         id="username"
         placeholder="Username"
+        onChange={(e) => setUserName(e.target.value)}
+        value={userName}
         className="peer border border-border rounded-md outline-none pl-10 pr-4 py-3 w-full focus:border-primary transition-colors duration-300"
       />
     </div>
@@ -37,6 +95,8 @@ export const Rejistration = ({handleClose}) => {
         name="password"
         id="password"
         placeholder="Password"
+        onChange={(e) => setPassword(e.target.value)}
+        value={password}
         className="peer border border-border rounded-md outline-none pl-10 pr-4 py-3 w-full focus:border-primary transition-colors duration-300"
       />
     </div>
@@ -50,11 +110,16 @@ export const Rejistration = ({handleClose}) => {
         id="email"
         placeholder="Email address"
         className="peer border border-border rounded-md outline-none pl-10 pr-4 py-3 w-full focus:border-primary transition-colors duration-300"
+        onChange={(e) => setEmail(e.target.value)}
+        value={email}
       />
     </div>
 
-    <button className="w-full md:w-[50%] h-12 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl shadow-md hover:from-purple-700 hover:to-indigo-700 transition-all duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-purple-300">
-  Sign Up
+    <button onClick={handleSubmit} className="w-full md:w-[50%] h-12 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl shadow-md hover:from-purple-700 hover:to-indigo-700 transition-all duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-purple-300">
+  
+  {
+    loader ? <BeatLoader color='white' size={5} /> : "Sign Up"
+  }
 </button>
 
 
@@ -73,6 +138,7 @@ export const Rejistration = ({handleClose}) => {
 
 
        </div>
+       <ToastContainer/>
     </>
   )
 }

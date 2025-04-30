@@ -29,8 +29,8 @@ export const Banner = () => {
                                <p  className='font-normal text-[20px] leading-[150%] tracking-[0.01em] text-second-text pb-3 font-serif'>Every day brings with it a fresh set of learning possibilities.</p>
 
                                  <div>
-                                      <button className='rounded-[5px] w-[193px] h-[52px] bg-[var(--primary-color)]  font-custom font-bold text-[14px] leading-[157%] tracking-[0.01em] text-white text-center shadow-md     transition-all duration-300 hover:bg-[var(--primary-color)] hover:scale-105'>Get Quote Now</button>
-                                       <button className='border border-[#96bb7c]  rounded-[5px]  w-[162px] h-[52px] font-custom font-bold text-[14px] leading-[157%] tracking-[0.01em] text-[#96bb7c] text-center mx-2 transition-all duration-300 hover:bg-[var(--primary-color)] hover:scale-105 hover:text-white'>Learn More</button>
+                                      <button className='rounded-[5px] w-[193px] h-[52px] bg-[#7eb556]  font-custom font-bold text-[14px] leading-[157%] tracking-[0.01em] text-white text-center shadow-md     transition-all duration-300 hover:bg-[#56b556] hover:scale-105'>Get Quote Now</button>
+                                       <button className='border border-[#7eb556]  rounded-[5px]  w-[162px] h-[52px] font-custom font-bold text-[14px] leading-[157%] tracking-[0.01em] text-[#96bb7c] text-center mx-2 transition-all duration-300 hover:bg-[#7eb556]   hover:scale-105 hover:text-white'>Learn More</button>
                                  </div>
                           </div>
                           <div className="col-lg-6"></div>
