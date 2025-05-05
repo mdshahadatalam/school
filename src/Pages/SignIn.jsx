@@ -1,8 +1,81 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {RiAccountCircleLine, RiLockPasswordLine} from "react-icons/ri";
 import {MdOutlineMail} from "react-icons/md";
 import { RxCross2 } from 'react-icons/rx';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useDispatch } from 'react-redux';
+import { loggedInUser } from '../Feuature/Slice/LoginSlice';
+import { toast, ToastContainer } from 'react-toastify';
+import { BeatLoader } from 'react-spinners';
+
+
 export const SignIn = ({handleSignInClose}) => {
+  const auth = getAuth();
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
+  const dispatch = useDispatch()
+  const [loader, setLoader] = useState(false)
+  
+  const handleLogin = ()=>{
+    setLoader(true)
+
+   signInWithEmailAndPassword(auth, email, password)
+   .then((user) => {
+    setLoader(false)
+    if(user.user.emailVerified == true){
+      dispatch(loggedInUser(user))
+      localStorage.setItem("user",JSON.stringify(user))
+      // navigate('/')
+
+      setEmail("");
+      setPassword("");
+
+       toast.success('welcome🥰', {
+             position: "top-right",
+             autoClose: 5000,
+             hideProgressBar: false,
+             closeOnClick: false,
+             pauseOnHover: true,
+             draggable: true,
+             progress: undefined,
+             theme: "light",
+             // transition: Bounce,
+             });
+    }else{
+      setLoader(false)
+       toast.error('Your email is not verified', {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: false,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              // transition: Bounce,
+              });
+    }
+    
+    
+   })
+   .catch((error) => {
+    console.log(error);
+    setLoader(false)
+    toast.error('invalid-credential', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      // transition: Bounce,
+      });
+
+    
+   });
+  }
   return (
     <>
        <div className='w-full h-screen d-flex justify-content-center align-items-center bg-black position-fixed top-0 position-relative'>
@@ -26,6 +99,8 @@ export const SignIn = ({handleSignInClose}) => {
         name="email"
         id="email"
         placeholder="Email address"
+        onChange={(e) => setEmail(e.target.value)}
+        value={email}
         className="peer border border-border rounded-md outline-none pl-10 pr-4 py-3 w-full focus:border-primary transition-colors duration-300"
       />
     </div>
@@ -38,13 +113,17 @@ export const SignIn = ({handleSignInClose}) => {
         name="password"
         id="password"
         placeholder="Password"
+        onChange={(e) => setPassword(e.target.value)}
+        value={password}
         className="peer border border-border rounded-md outline-none pl-10 pr-4 py-3 w-full focus:border-primary transition-colors duration-300"
       />
     </div>
 
     {/* Login Button */}
-    <button className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 h-12 text-white font-semibold rounded-xl shadow-md hover:from-purple-700 hover:to-indigo-700 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-purple-300">
-      Login
+    <button onClick={handleLogin} className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 h-12 text-white font-semibold rounded-xl shadow-md hover:from-purple-700 hover:to-indigo-700 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-purple-300">
+      {
+        loader ? <BeatLoader color='white' size={5} /> : "Login"
+      }
     </button>
 
     {/* Switch to Registration */}
@@ -62,6 +141,8 @@ export const SignIn = ({handleSignInClose}) => {
 
 
               </div>
+
+              <ToastContainer/>
     </>
   )
 }

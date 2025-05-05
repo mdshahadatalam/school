@@ -15,4 +15,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // ✅ Export the app
-export default app;
+export default firebaseConfig;

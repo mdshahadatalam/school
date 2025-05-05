@@ -3,12 +3,12 @@ import {RiAccountCircleLine, RiLockPasswordLine} from "react-icons/ri";
 import {MdOutlineMail} from "react-icons/md";
 import { RxCross2 } from 'react-icons/rx';
 import { getAuth, createUserWithEmailAndPassword , sendEmailVerification} from "firebase/auth";
-import app from '../DB/Firebase';
+// import app from '../DB/Firebase';
 import { toast, ToastContainer } from 'react-toastify';
 import { BeatLoader } from 'react-spinners';
 
 export const Rejistration = ({handleClose}) => {
-    const auth = getAuth(app);
+    const auth = getAuth();
     const [userName, setUserName] = useState()
     const [password, setPassword] = useState()
     const [email, setEmail] = useState()
