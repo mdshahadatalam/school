@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { loggedInUser } from '../Feuature/Slice/LoginSlice';
 import { toast, ToastContainer } from 'react-toastify';
 import { BeatLoader } from 'react-spinners';
+import { PasswordReset } from '../Reset/PasswordReset';
 
 
 export const SignIn = ({handleSignInClose}) => {
@@ -85,8 +86,8 @@ export const SignIn = ({handleSignInClose}) => {
                         </div>
        
                   
-                        <div className="text-black w-full max-w-md mx-auto bg-white shadow-lg rounded-md">
-  <div className="p-6 md:p-8 mb-4 flex flex-col gap-5 items-center justify-center">
+<div className="text-black w-full max-w-md mx-auto bg-white shadow-lg rounded-md">
+  <div className="p-6 md:p-8 flex flex-col gap-5 items-center justify-center">
     <p className="text-gray-600 font-bold font-serif tracking-wide text-center text-sm md:text-base">
       Please fill out this form to Login
     </p>
@@ -127,7 +128,9 @@ export const SignIn = ({handleSignInClose}) => {
     </button>
 
     {/* Switch to Registration */}
-    <p className="text-gray-600 font-bold font-serif tracking-wide text-center text-sm md:text-base">
+
+    <div>
+    <p className="text-gray-600 font-bold font-serif tracking-wide text-center text-sm md:text-base m-0 ">
       Don’t have a registration?{" "}
       <span
         onClick={handleSignInClose}
@@ -136,13 +139,16 @@ export const SignIn = ({handleSignInClose}) => {
         Register
       </span>
     </p>
+
+       <PasswordReset/>
+    </div>
+
   </div>
 </div>
 
+</div>
 
-              </div>
-
-              <ToastContainer/>
+  <ToastContainer/>
     </>
   )
 }
