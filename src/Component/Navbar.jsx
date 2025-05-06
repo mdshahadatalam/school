@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {IoIosSearch} from "react-icons/io";
 import logo from '../assets/navbar-brand sec-.png'
 import { CiMenuFries } from 'react-icons/ci';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { Rejistration } from '../Pages/Rejistration';
 import { SignIn } from '../Pages/SignIn';
 
@@ -10,6 +10,7 @@ export const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [show,setShow] = useState(false)
     const [showSign , setShowSign] = useState(false)
+    const navigate = useNavigate()
 
      const handleShow = ()=>{
       setShow(true)
@@ -25,6 +26,9 @@ export const Navbar = () => {
       setShowSign(false)
      }
      
+     const handleHome = ()=>{
+      navigate("/")
+     }
 
   return (
    <>
@@ -38,22 +42,21 @@ export const Navbar = () => {
 {/* nav menus */}
 <ul className="items-center gap-[20px] text-[1rem] text-[#424242] md:flex hidden pt-2">
       
-      <a className="lik" href="#home">
+      <Link className="lik" to="/">
       <li  className="hover:border-b-[#3B9DF8] border-b-[2px] border-transparent transition-all duration-500 cursor-pointer hover:text-[#3B9DF8] capitalize font-bold text-[16px] leading-[171%] tracking-[0.01em] text-center text-[var(--second-text-color)]">home</li>
-      </a>
+      </Link>
 
-   <a className="lik" href="#product">
-   <li className="hover:border-b-[#3B9DF8] border-b-[2px] border-transparent transition-all duration-500 cursor-pointer hover:text-[#3B9DF8] capitalize font-bold text-[16px] leading-[171%] tracking-[0.01em] text-center text-[var(--second-text-color)]">product
-        us
+   <a  className="lik" href="#product">
+   <li onClick={handleHome} className="hover:border-b-[#3B9DF8] border-b-[2px] border-transparent transition-all duration-500 cursor-pointer hover:text-[#3B9DF8] capitalize font-bold text-[16px] leading-[171%] tracking-[0.01em] text-center text-[var(--second-text-color)]"> product us
     </li>
    </a>
 
     <a className="lik" href="#pricing">
-    <li className="hover:border-b-[#3B9DF8] border-b-[2px] border-transparent transition-all duration-500 cursor-pointer hover:text-[#3B9DF8] capitalize font-bold text-[16px] leading-[171%] tracking-[0.01em] text-center text-[var(--second-text-color)]">pricing</li>
+    <li onClick={handleHome}  className="hover:border-b-[#3B9DF8] border-b-[2px] border-transparent transition-all duration-500 cursor-pointer hover:text-[#3B9DF8] capitalize font-bold text-[16px] leading-[171%] tracking-[0.01em] text-center text-[var(--second-text-color)]">pricing</li>
     </a>
 
    <a className="lik" href="#contact">
-   <li className="hover:border-b-[#3B9DF8] border-b-[2px] border-transparent transition-all duration-500 cursor-pointer hover:text-[#3B9DF8] capitalize font-bold text-[16px] leading-[171%] tracking-[0.01em] text-center text-[var(--second-text-color)]">contact</li>
+   <li onClick={handleHome}  className="hover:border-b-[#3B9DF8] border-b-[2px] border-transparent transition-all duration-500 cursor-pointer hover:text-[#3B9DF8] capitalize font-bold text-[16px] leading-[171%] tracking-[0.01em] text-center text-[var(--second-text-color)]">contact</li>
    </a>
 </ul>
 

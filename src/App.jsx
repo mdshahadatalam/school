@@ -12,6 +12,10 @@ import { Futter } from './Component/Futter';
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 import { useEffect } from 'react';
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router';
+import { RootLayout } from './RootLayout/RootLayout';
+import { Home } from './Pages/Home';
+import { Community } from './Pages/Community';
 
 
 
@@ -21,16 +25,23 @@ function App() {
     Aos.init();
   })
 
+  const route = createBrowserRouter(
+    createRoutesFromElements(
+      <Route>
+           <Route  element={<RootLayout/>}>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/community" element={<Community/>}/>
+        {/* <Route path="/contact" element={<Contact/>}/> */}
+        {/* <Route path="/service" element={<Service/>}/> */}
+      </Route>
+      </Route>
+      
+    )
+  )
+
   return (
       <>
-        <Navbar/>
-        <Banner/>
-        <ClentMatter/>
-        <Teacher/>
-        <MyClient/>
-        <PopulerCourse/>
-        <Subcripe/>
-        <Futter/>
+         <RouterProvider router={route} />
       </>
        
   )
