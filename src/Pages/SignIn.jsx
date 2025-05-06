@@ -8,6 +8,7 @@ import { loggedInUser } from '../Feuature/Slice/LoginSlice';
 import { toast, ToastContainer } from 'react-toastify';
 import { BeatLoader } from 'react-spinners';
 import { PasswordReset } from '../Reset/PasswordReset';
+import { GoogleSignIn } from '../Google/GoogleSignIn';
 
 
 export const SignIn = ({handleSignInClose}) => {
@@ -81,8 +82,8 @@ export const SignIn = ({handleSignInClose}) => {
        
                   
 <div className="text-black w-full max-w-md mx-auto bg-white shadow-lg rounded-md">
-  <div className="p-6 md:p-8 flex flex-col gap-5 items-center justify-center">
-    <p className="text-gray-600 font-bold font-serif tracking-wide text-center text-sm md:text-base">
+  <div className="p-3 md:p-8 flex flex-col gap-5 items-center justify-center">
+    <p className="text-gray-600 font-bold font-serif tracking-wide text-center text-sm md:text-base m-0">
       Please fill out this form to Login
     </p>
 
@@ -135,6 +136,7 @@ export const SignIn = ({handleSignInClose}) => {
     </p>
 
        <PasswordReset/>
+       <GoogleSignIn/>
     </div>
 
   </div>

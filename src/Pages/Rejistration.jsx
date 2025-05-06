@@ -6,6 +6,7 @@ import { getAuth, createUserWithEmailAndPassword , sendEmailVerification} from "
 // import app from '../DB/Firebase';
 import { toast, ToastContainer } from 'react-toastify';
 import { BeatLoader } from 'react-spinners';
+import { GoogleSignIn } from '../Google/GoogleSignIn';
 
 export const Rejistration = ({handleClose,setShowSign}) => {
     const auth = getAuth();
@@ -79,8 +80,8 @@ export const Rejistration = ({handleClose,setShowSign}) => {
                  </div>
 
                  <div className="text-black w-full max-w-xl mx-auto bg-white shadow-lg rounded-md">
-  <div className="p-6 md:p-8 mb-4 flex flex-col gap-5 items-center justify-center">
-    <p className="text-gray-600 font-bold font-serif tracking-wide m-0 text-center text-sm md:text-base">
+  <div className="p-3 md:p-8 mb-4 flex flex-col gap-5 items-center justify-center">
+    <p className="text-gray-600 font-bold font-serif tracking-wide m-0 text-center text-sm md:text-base ">
       Please fill out this form for Registration
     </p>
 
@@ -134,7 +135,8 @@ export const Rejistration = ({handleClose,setShowSign}) => {
 </button>
 
 
-    <p className="text-gray-600 font-bold font-serif tracking-wide m-0 text-center text-sm md:text-base">
+   <div>
+   <p className="text-gray-600 font-bold font-serif tracking-wide m-0 text-center text-sm md:text-base">
       Already registered?{" "}
       <span
         onClick={handleRedirectSignIn}
@@ -143,6 +145,10 @@ export const Rejistration = ({handleClose,setShowSign}) => {
         Login
       </span>
     </p>
+
+       <GoogleSignIn/>
+   </div>
+
   </div>
 </div>
 
