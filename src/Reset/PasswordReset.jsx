@@ -4,8 +4,9 @@ import { RxCross2 } from 'react-icons/rx';
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { toast, ToastContainer } from 'react-toastify';
 import { BeatLoader } from 'react-spinners';
+
 export const PasswordReset = () => {
-     
+    const auth = getAuth();
     const [show, setShow] = useState(false)
     const [email, setEmail] = useState()
     const [loader, setLoader] = useState(false)
@@ -19,11 +20,16 @@ export const PasswordReset = () => {
 
 
      const handleSubmit =()=>{
-        const auth = getAuth();
+        setLoader(true)
         sendPasswordResetEmail(auth, email)
   .then(() => {
-     console.log("Password reset email sent successfully");
+    //  console.log("Password reset email sent successfully");
+    setLoader(false)
      setEmail("")
+     
+     setTimeout(() => {
+        setShow(false)
+       }, 2500);
          
             toast.success('Password reset email sent successfully', {
                       position: "top-right",
@@ -36,14 +42,9 @@ export const PasswordReset = () => {
                       theme: "light",
                       // transition: Bounce,
                       });
-
-       setTimeout(() => {
-        setShow(false)
-       }, 2500);
-    //    alert("Password reset email sent successfully")
-    
-  })
+     })
   .catch((error) => {
+    setLoader(false)
      console.log(error.message);
     
   });
@@ -55,7 +56,7 @@ export const PasswordReset = () => {
   return (
     <>
     
-        <p onClick={handleShow} className='m-0 text-gray-600 font-bold font-serif tracking-wide text-center text-sm md:text-base hover:text-blue-500 hover:underline hover:cursor-pointer'>forget Password?</p>
+        <p onClick={handleShow} className='m-0 text-gray-600 font-bold font-serif tracking-wide text-center text-sm md:text-base hover:text-blue-500 hover:underline hover:cursor-pointer pt-2'>forget Password?</p>
 
 
 
@@ -88,7 +89,7 @@ export const PasswordReset = () => {
       <div className="flex justify-center items-center mt-4">
         <button onClick={handleSubmit} className="bg-white text-black w-[200px] h-[40px] rounded-md hover:bg-gray-200 transition shadow-lg">
             {
-                loader ? <BeatLoader color='white' size={5} /> : "Submit"
+                loader ? <BeatLoader color='black' size={5} /> : "Submit"
             }
         </button>
       </div>

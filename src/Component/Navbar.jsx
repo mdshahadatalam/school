@@ -90,13 +90,13 @@ export const Navbar = () => {
         </li>
         <li  onClick={() => setIsMenuOpen(!isMenuOpen)} className="hover:border-b-[#3B9DF8] border-b-[2px] border-transparent transition-all duration-500 cursor-pointer capitalize">services</li>
 
-        <button  onClick={() => setIsMenuOpen(!isMenuOpen)} className='font-bold text-[18px] leading-[157%] tracking-[0.01em] text-right text-white mx-3'>
-           login
+        <button  onClick={handleSignIn} className='font-bold text-[18px] leading-[157%] tracking-[0.01em] text-right text-white mx-3'>
+           <span onClick={() => setIsMenuOpen(!isMenuOpen)}>login</span>
          </button>
 
 
-  <button  onClick={() => setIsMenuOpen(!isMenuOpen)} className='rounded-[5px] px-[25px] py-[15px] w-[137px] h-[52px] bg-[var(--primary-color)] font-bold text-[14px] leading-[157%] tracking-[0.01em] text-[var(--light-background-color)] shadow-md transition-all duration-300 hover:bg-[var(--primary-color)] hover:scale-105'>
-    JOIN US
+  <button  onClick={handleShow} className='rounded-[5px] px-[25px] py-[15px] w-[137px] h-[52px] bg-[var(--primary-color)] font-bold text-[14px] leading-[157%] tracking-[0.01em] text-[var(--light-background-color)] shadow-md transition-all duration-300 hover:bg-[var(--primary-color)] hover:scale-105'>
+   <span onClick={() => setIsMenuOpen(!isMenuOpen)}> JOIN US</span>
   </button>
     </ul>
 
@@ -107,7 +107,7 @@ export const Navbar = () => {
      </section>
 
    {
-     show ? <Rejistration handleClose={handleClose} /> : null
+     show ? <Rejistration handleClose={handleClose} setShowSign={setShowSign} /> : null
    }
 
 

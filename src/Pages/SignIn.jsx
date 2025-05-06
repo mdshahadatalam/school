@@ -17,66 +17,60 @@ export const SignIn = ({handleSignInClose}) => {
   const dispatch = useDispatch()
   const [loader, setLoader] = useState(false)
   
-  const handleLogin = ()=>{
-    setLoader(true)
 
-   signInWithEmailAndPassword(auth, email, password)
-   .then((user) => {
-    setLoader(false)
-    if(user.user.emailVerified == true){
-      dispatch(loggedInUser(user))
-      localStorage.setItem("user",JSON.stringify(user))
-      // navigate('/')
-
-      setEmail("");
-      setPassword("");
-
-       toast.success('welcome🥰', {
-             position: "top-right",
-             autoClose: 5000,
-             hideProgressBar: false,
-             closeOnClick: false,
-             pauseOnHover: true,
-             draggable: true,
-             progress: undefined,
-             theme: "light",
-             // transition: Bounce,
-             });
-    }else{
-      setLoader(false)
-       toast.error('Your email is not verified', {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: false,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "light",
-              // transition: Bounce,
-              });
-    }
-    
-    
-   })
-   .catch((error) => {
-    console.log(error);
-    setLoader(false)
-    toast.error('invalid-credential', {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      // transition: Bounce,
+  const handleLogin = () => {
+    setLoader(true);
+  
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        setLoader(false);
+        const user = userCredential.user;
+  
+        if (user.emailVerified) {
+          dispatch(loggedInUser(user));
+          localStorage.setItem("user", JSON.stringify(user));
+  
+          setEmail("");
+          setPassword("");
+  
+          toast.success('Welcome 🥰', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            theme: "light",
+          });
+  
+          // Optionally: navigate('/')
+        } else {
+          toast.error('Your email is not verified', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            theme: "light",
+          });
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        setLoader(false);
+        toast.error('Invalid credentials', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          theme: "light",
+        });
       });
-
-    
-   });
-  }
+  };
+  
   return (
     <>
        <div className='w-full h-screen d-flex justify-content-center align-items-center bg-black position-fixed top-0 position-relative'>

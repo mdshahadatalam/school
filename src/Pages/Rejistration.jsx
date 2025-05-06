@@ -7,7 +7,7 @@ import { getAuth, createUserWithEmailAndPassword , sendEmailVerification} from "
 import { toast, ToastContainer } from 'react-toastify';
 import { BeatLoader } from 'react-spinners';
 
-export const Rejistration = ({handleClose}) => {
+export const Rejistration = ({handleClose,setShowSign}) => {
     const auth = getAuth();
     const [userName, setUserName] = useState()
     const [password, setPassword] = useState()
@@ -38,6 +38,12 @@ export const Rejistration = ({handleClose}) => {
       theme: "light",
       // transition: Bounce,
       });
+
+
+      setTimeout(() => {
+        setShowSign(true)
+        handleClose()
+      } , 2500);
     
     
     // ...
@@ -59,6 +65,11 @@ export const Rejistration = ({handleClose}) => {
     
   });
         }
+
+   const handleRedirectSignIn =()=>{
+    setShowSign(true)
+   }
+
   return (
     <>
        <div className='w-full h-screen d-flex justify-content-center align-items-center bg-black position-fixed top-0 position-relative'>
@@ -126,7 +137,7 @@ export const Rejistration = ({handleClose}) => {
     <p className="text-gray-600 font-bold font-serif tracking-wide m-0 text-center text-sm md:text-base">
       Already registered?{" "}
       <span
-        onClick={handleClose}
+        onClick={handleRedirectSignIn}
         className="hover:cursor-pointer inline-block hover:underline text-blue-500"
       >
         Login
